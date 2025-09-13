@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace entrega_viernes_5_09.Services
 {
-    public class BillService
+    public class BillService : IBillService
     {
         private IBillRepository _billRepository;
         public BillService()

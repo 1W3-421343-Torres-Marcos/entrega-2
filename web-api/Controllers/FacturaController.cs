@@ -10,11 +10,11 @@ namespace web_api.Controllers
     [ApiController]
     public class FacturaController : ControllerBase
     {
-        private BillService bServicio;
+        private readonly IBillService _bServicio;
 
-        public FacturaController()
+        public FacturaController(IBillService billService)
         {
-            bServicio = new BillService();
+            _bServicio = billService;
         }
 
         // GET: api/<FacturaController>
@@ -22,14 +22,14 @@ namespace web_api.Controllers
         public IActionResult Get()
         {
 
-            return Ok(bServicio.GetBills());
+            return Ok(_bServicio.GetBills());
         }
 
         // GET api/<FacturaController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(bServicio.GetBill(id));
+            return Ok(_bServicio.GetBill(id));
         }
 
         // POST api/<FacturaController>
@@ -42,7 +42,7 @@ namespace web_api.Controllers
                 {
                     return BadRequest("Se esperaba una factura");
                 }
-                if (bServicio.SaveBill(bill))
+                if (_bServicio.SaveBill(bill))
                     return Ok("Factura registrada con éxito!");
                 else
                     return StatusCode(500, "No se pudo registrar la factura!");
@@ -63,7 +63,7 @@ namespace web_api.Controllers
                 {
                     return BadRequest("Se esperaba una factura");
                 }
-                if (bServicio.UpdateBill(bill))
+                if (_bServicio.UpdateBill(bill))
                     return Ok("Factura actualizada con éxito!");
                 else
                     return StatusCode(500, "No se pudo registrar la factura!");
@@ -78,7 +78,7 @@ namespace web_api.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            return Ok(bServicio.DeleteBill(id));
+            return Ok(_bServicio.DeleteBill(id));
         }
     }
 }
