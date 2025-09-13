@@ -1,0 +1,108 @@
+//PARA POST---------------------------------------
+{
+  "nroFactura": 0,
+  "fecha": "2025-09-07T00:00:00",
+  "payment": {
+    "id": 1,
+    "nombre": "Efectivo",
+    "estaActivo": true
+  },
+  "cliente": "test",
+  "facturaActiva": true,
+  "details": [
+    {
+      "articulo": {
+        "id": 1,
+        "nombre": "Cuaderno A4 rayado",
+        "precioUnitario": 2.5,
+        "estaActivo": true
+      },
+      "cantidad": 45
+    },
+    {
+      "articulo": {
+        "id": 3,
+        "nombre": "Carpeta de anillas",
+        "precioUnitario": 3.2,
+        "estaActivo": true
+      },
+      "cantidad": 20
+    },
+    {
+      "articulo": {
+        "id": 5,
+        "nombre": "Caja de lapices de colores",
+        "precioUnitario": 6,
+        "estaActivo": true
+      },
+      "cantidad": 9
+    },
+    {
+      "articulo": {
+        "id": 6,
+        "nombre": "Sacapuntas metalico",
+        "precioUnitario": 1,
+        "estaActivo": true
+      },
+      "cantidad": 41
+    }
+  ]
+},
+
+{
+  "nroFactura": 0,
+  "fecha": "2025-09-07T00:00:00",
+  "payment": {
+    "id": 2,
+    "nombre": "Tarjeta de Credito",
+    "estaActivo": true
+  },
+  "cliente": "test2",
+  "facturaActiva": true,
+  "details": [
+    {
+      "articulo": {
+        "id": 9,
+        "nombre": "Set de reglas (20cm)",
+        "precioUnitario": 2.1,
+        "estaActivo": true
+      },
+      "cantidad": 12
+    },
+    {
+      "articulo": {
+        "id": 3,
+        "nombre": "Carpeta de anillas",
+        "precioUnitario": 3.2,
+        "estaActivo": true
+      },
+      "cantidad": 38
+    }
+  ]
+}
+
+//PARA PUT
+
+{
+  "nroFactura": 1,
+  "fecha": "2025-09-07T00:00:00",
+  "payment": {
+    "id": 2,
+    "nombre": "Tarjeta de Credito",
+    "estaActivo": true
+  },
+  "cliente": "test de put",
+  "facturaActiva": true
+},
+
+{
+  "nroFactura": 4,
+  "fecha": "2025-09-07T00:00:00",
+  "payment": {
+    "id": 3,
+      "nombre": "Transferencia Bancaria",
+      "estaActivo": true
+  },
+  "cliente": "test de put2",
+  "facturaActiva": true
+}
