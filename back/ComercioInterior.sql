@@ -125,24 +125,44 @@ CREATE PROCEDURE SP_RECUPERAR_FACTURA_POR_ID
 	@nroFactura int
 AS
 BEGIN
-	SELECT f.*, df.cantidad, a.*, fp.*
-	  FROM Facturas f
-	  INNER JOIN DetallesFactura df ON f.nroFactura = df.idFactura
-	  INNER JOIN Articulos a ON df.idArticulo = a.id
-	  INNER JOIN FormasDePago fp ON fp.id = f.idForma
-	  WHERE f.nroFactura = @nroFactura;
+	SELECT 
+		f.nroFactura AS NroFactura,
+		f.fecha, 
+		f.idForma AS IdFormaPago,
+		df.id AS DetalleId, 
+		df.cantidad, 
+		a.id AS ArticuloId, 
+		a.nombre AS NombreArticulo, 
+		a.precio AS PrecioArticulo,
+		fp.id AS FormaPagoId,
+		fp.nombre AS NombreFormaPago
+	FROM Facturas f
+	INNER JOIN DetallesFactura df ON f.nroFactura = df.idFactura
+	INNER JOIN Articulos a ON df.idArticulo = a.id
+	INNER JOIN FormasDePago fp ON fp.id = f.idForma
+	WHERE f.nroFactura = @nroFactura;
 END
 GO
 
 CREATE PROCEDURE SP_RECUPERAR_FACTURAS
 AS
 BEGIN
-	SELECT f.*, df.* , a.*, fp.*
-	  FROM Facturas f
-	  INNER JOIN DetallesFactura df ON df.idFactura =f.nroFactura
-	  INNER JOIN Articulos a ON a.id = df.idArticulo
-	  INNER JOIN FormasDePago fp ON fp.id = f.idForma
-	  ORDER BY f.nroFactura;
+	SELECT 
+		f.nroFactura AS NroFactura,
+		f.fecha, 
+		f.idForma AS IdFormaPago,
+		df.id AS DetalleId,
+		df.cantidad,
+		a.id AS ArticuloId, 
+		a.nombre AS NombreArticulo,
+		a.precio AS PrecioArticulo,
+		fp.id AS FormaPagoId,
+		fp.nombre AS NombreFormaPago
+	FROM Facturas f
+	INNER JOIN DetallesFactura df ON df.idFactura = f.nroFactura
+	INNER JOIN Articulos a ON a.id = df.idArticulo
+	INNER JOIN FormasDePago fp ON fp.id = f.idForma
+	ORDER BY f.nroFactura;
 END
 GO
 
