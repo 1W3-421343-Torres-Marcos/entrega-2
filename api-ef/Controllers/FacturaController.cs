@@ -59,8 +59,8 @@ namespace api_ef.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public ActionResult Update(int id, [FromBody]Factura factura)
+        [HttpPut]
+        public ActionResult Update([FromBody]FacturaDto factura)
         {
             try
             {

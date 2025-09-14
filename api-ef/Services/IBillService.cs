@@ -9,6 +9,6 @@ namespace api_ef.Services
             void SaveBill(FacturaDto bill);
             FacturaDto? GetBill(int id);
             void DeleteBill(int id);
-            void UpdateBill(Factura bill);
+            void UpdateBill(FacturaDto bill);
     }
 }

@@ -58,9 +58,13 @@ namespace api_ef.Services
             _billRepository.Create(factura);
         }
 
-        public void UpdateBill(Factura bill)
+        public void UpdateBill(FacturaDto bill)
         {
-            _billRepository.Update(bill);
+            Factura? facturaActualizada = MapForUpdate(bill);
+            if (facturaActualizada != null)
+            {
+                _billRepository.Update(facturaActualizada);
+            }
         }
 
         public FacturaDto? MapToDto(Factura factura)
@@ -128,29 +132,34 @@ namespace api_ef.Services
             return factura;
         }
 
-        public void MapForUpdate(FacturaDto facturaDto, Factura existingFactura)
+        public Factura? MapForUpdate(FacturaDto facturaDto)
         {
-            existingFactura.Fecha = facturaDto.Fecha;
-            existingFactura.Cliente = facturaDto.Cliente;
-            existingFactura.FacturaActiva = facturaDto.FacturaActiva;
+            Factura? factura = _billRepository.GetById(facturaDto.NroFactura);
+            if (factura == null)
+            {
+                return null;
+            }
+            factura.Fecha = facturaDto.Fecha;
+            factura.Cliente = facturaDto.Cliente;
+            factura.FacturaActiva = facturaDto.FacturaActiva;
 
             if (facturaDto.FormaDePago != null)
             {
-                existingFactura.IdForma = facturaDto.FormaDePago.Id;
+                factura.IdForma = facturaDto.FormaDePago.Id;
             }
             if (facturaDto.DetallesFacturas != null)
             {
                 var detallesDtoIds = facturaDto.DetallesFacturas.Select(d => d.IdDetalle).ToList();
-                var detallesAEliminar = existingFactura.DetallesFacturas
+                var detallesAEliminar = factura.DetallesFacturas
                     .Where(d => !detallesDtoIds.Contains(d.IdDetalle))
                     .ToList();
                 foreach (var detalle in detallesAEliminar)
                 {
-                    existingFactura.DetallesFacturas.Remove(detalle);
+                    factura.DetallesFacturas.Remove(detalle);
                 }
                 foreach (var dfDto in facturaDto.DetallesFacturas)
                 {
-                    var detalleExistente = existingFactura.DetallesFacturas
+                    var detalleExistente = factura.DetallesFacturas
                         .FirstOrDefault(d => d.IdDetalle == dfDto.IdDetalle);
 
                     if (detalleExistente != null)
@@ -160,15 +169,16 @@ namespace api_ef.Services
                     }
                     else
                     {
-                        existingFactura.DetallesFacturas.Add(new DetallesFactura
+                        factura.DetallesFacturas.Add(new DetallesFactura
                         {
-                            IdFactura = existingFactura.NroFactura,
+                            IdFactura = factura.NroFactura,
                             IdArticulo = dfDto.Articulo?.Id ?? 0,
                             Cantidad = dfDto.Cantidad,
                         });
                     }
                 }
             }
+            return factura;
         }
     }
 }
