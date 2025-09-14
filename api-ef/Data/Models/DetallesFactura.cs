@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace api_ef.Data.Models;
 
@@ -17,5 +18,6 @@ public partial class DetallesFactura
 
     public virtual Articulo IdArticuloNavigation { get; set; }
 
+    [JsonIgnore]
     public virtual Factura IdFacturaNavigation { get; set; }
 }

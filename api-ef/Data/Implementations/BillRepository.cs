@@ -1,5 +1,6 @@
 ﻿using api_ef.Data.Models;
 using api_ef.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace api_ef.Data.Implementations
 {
@@ -28,12 +29,18 @@ namespace api_ef.Data.Implementations
 
         public List<Factura> GetAll()
         {
-            return _dbContext.Facturas.ToList();
+            return _dbContext.Facturas
+                             .Include(f => f.DetallesFacturas)
+                             .ThenInclude(df => df.IdArticuloNavigation)
+                             .ToList();
         }
 
         public Factura? GetById(int id)
         {
-            return _dbContext.Facturas.Find(id);
+            return _dbContext.Facturas
+                             .Include(f => f.DetallesFacturas)
+                             .ThenInclude(df => df.IdArticuloNavigation)
+                             .FirstOrDefault(f => f.NroFactura == id);
         }
 
         public void Update(Factura bill)

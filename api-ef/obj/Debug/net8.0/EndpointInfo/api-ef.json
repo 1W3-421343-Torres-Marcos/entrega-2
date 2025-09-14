@@ -159,13 +159,6 @@
           "estaActivo": {
             "type": "boolean",
             "nullable": true
-          },
-          "detallesFacturas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DetallesFactura"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -193,9 +186,6 @@
           },
           "idArticuloNavigation": {
             "$ref": "#/components/schemas/Articulo"
-          },
-          "idFacturaNavigation": {
-            "$ref": "#/components/schemas/Factura"
           }
         },
         "additionalProperties": false

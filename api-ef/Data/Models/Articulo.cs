@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace api_ef.Data.Models;
 
@@ -15,5 +16,6 @@ public partial class Articulo
 
     public bool? EstaActivo { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<DetallesFactura> DetallesFacturas { get; set; } = new List<DetallesFactura>();
 }
