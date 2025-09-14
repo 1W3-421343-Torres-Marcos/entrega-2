@@ -129,11 +129,11 @@ BEGIN
 		f.nroFactura AS NroFactura,
 		f.fecha, 
 		f.idForma AS IdFormaPago,
-		df.id AS DetalleId, 
+		df.idDetalle AS DetalleId, 
 		df.cantidad, 
 		a.id AS ArticuloId, 
 		a.nombre AS NombreArticulo, 
-		a.precio AS PrecioArticulo,
+		a.precioUnitario AS PrecioArticulo,
 		fp.id AS FormaPagoId,
 		fp.nombre AS NombreFormaPago
 	FROM Facturas f
@@ -151,11 +151,11 @@ BEGIN
 		f.nroFactura AS NroFactura,
 		f.fecha, 
 		f.idForma AS IdFormaPago,
-		df.id AS DetalleId,
+		df.idDetalle AS DetalleId,
 		df.cantidad,
 		a.id AS ArticuloId, 
 		a.nombre AS NombreArticulo,
-		a.precio AS PrecioArticulo,
+		a.precioUnitario AS PrecioArticulo,
 		fp.id AS FormaPagoId,
 		fp.nombre AS NombreFormaPago
 	FROM Facturas f
