@@ -19,10 +19,10 @@ namespace api_ef.Data.Implementations
 
         public void Delete(int id)
         {
-            var factura = GetById(id);
+            var factura = _dbContext.Facturas.Find(id);
             if (factura != null)
             {
-                _dbContext.Remove(factura);
+                factura.FacturaActiva = false;
                 _dbContext.SaveChanges();
             }
         }

@@ -55,12 +55,12 @@ namespace api_ef.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update([FromHeader]int id, [FromBody]Factura factura)
+        public ActionResult Update(int id, [FromBody]Factura factura)
         {
             try
             {
                 _billService.UpdateBill(factura);
-                return StatusCode(201, "eliminado con exito");
+                return StatusCode(201, "actualizado con exito");
             }
             catch
             {
