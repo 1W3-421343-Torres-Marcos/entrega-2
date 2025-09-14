@@ -8,7 +8,7 @@ namespace api_ef.Services
     {
         private readonly IBillRepository _billRepository;
 
-        public BillService(BillRepository repositorio)
+        public BillService(IBillRepository repositorio)
         {
             _billRepository = repositorio;
         }

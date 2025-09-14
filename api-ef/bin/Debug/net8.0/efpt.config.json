@@ -1,0 +1,118 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "ComercioDBContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "MinimumProductVersion": "2.6.1130",
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Data\\Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "api_ef",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Articulos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DetallesFactura]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Facturas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FormasDePago]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SP_ACTUALIZAR_FACTURA]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_GUARDAR_ARTICULO]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_GUARDAR_FORMAPAGO]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_INSERTAR_DETALLE]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_INSERTAR_FACTURA]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_RECUPERAR_ARTICULOS_POR_CODIGO]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_RECUPERAR_ARTICULOS]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_RECUPERAR_FACTURA_POR_ID]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_RECUPERAR_FACTURAS]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_RECUPERAR_FORMAPAGO_POR_CODIGO]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_RECUPERAR_FORMASPAGO]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_REGISTRAR_BAJA_ARTICULO]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_REGISTRAR_BAJA_FACTURA]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SP_REGISTRAR_BAJA_FORMAPAGO]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}

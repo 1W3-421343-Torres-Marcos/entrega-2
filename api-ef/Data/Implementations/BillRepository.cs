@@ -43,7 +43,6 @@ namespace api_ef.Data.Implementations
                 _dbContext.Facturas.Update(bill);
                 _dbContext.SaveChanges();
             }
-            ;
         }
     }
 }
