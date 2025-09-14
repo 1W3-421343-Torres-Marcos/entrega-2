@@ -30,6 +30,7 @@ namespace api_ef.Data.Implementations
         public List<Factura> GetAll()
         {
             return _dbContext.Facturas
+                             .Include(fp => fp.IdFormaNavigation)
                              .Include(f => f.DetallesFacturas)
                              .ThenInclude(df => df.IdArticuloNavigation)
                              .ToList();
@@ -38,6 +39,7 @@ namespace api_ef.Data.Implementations
         public Factura? GetById(int id)
         {
             return _dbContext.Facturas
+                             .Include(fp => fp.IdFormaNavigation)
                              .Include(f => f.DetallesFacturas)
                              .ThenInclude(df => df.IdArticuloNavigation)
                              .FirstOrDefault(f => f.NroFactura == id);

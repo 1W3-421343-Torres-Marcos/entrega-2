@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace api_ef.Data.Models;
 
@@ -12,6 +13,6 @@ public partial class FormasDePago
     public string Nombre { get; set; }
 
     public bool? EstaActivo { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
 }
