@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "factura",
-        "Type": "api_ef.Data.Models.Factura",
+        "Type": "api_ef.Dtos.FacturaDto",
         "IsRequired": true
       }
     ],

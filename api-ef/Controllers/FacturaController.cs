@@ -1,4 +1,5 @@
 ﻿using api_ef.Data.Models;
+using api_ef.Dtos;
 using api_ef.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,7 +33,11 @@ namespace api_ef.Controllers
         {
             try
             {
-                return Ok(_billService.GetBill(id));
+                if (_billService.GetBill(id) != null)
+                {
+                    return Ok(_billService.GetBill(id));
+                }
+                return StatusCode(404, "no hay");
             }
             catch
             {
@@ -41,7 +46,7 @@ namespace api_ef.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([FromBody]Factura factura)
+        public ActionResult Create([FromBody]FacturaDto factura)
         {
             try
             {
